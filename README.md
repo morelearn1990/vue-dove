@@ -18,6 +18,7 @@ import Vue from "vue";
 import { Components, Editor } from "vue-dove";
 
 import "vue-dove/dist/vue-dove.css";
+import "vue-dove/packages/styles/index.less";
 
 Vue.use(Editor);
 
@@ -93,7 +94,7 @@ yarn add vue-dove
 import Vue from "vue";
 import { Components, Viewer } from "vue-dove";
 
-import "vue-dove/dist/vue-dove.css";
+import "vue-dove/packages/styles/index.less";
 
 Vue.use(Viewer);
 
