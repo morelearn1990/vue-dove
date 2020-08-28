@@ -1,0 +1,46 @@
+.d-list1 {
+  .wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .item {
+    flex-grow: 0;
+    flex-shrink: 0;
+    width: calc(50% - 20px);
+    margin: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 0 4px #ddd;
+    border-radius: 3px;
+    transition: box-shadow 300ms ease-out;
+    > div {
+      width: 40px;
+      height: 4px;
+      background-color: @text-subsidiary;
+      transition: width 300ms ease-out, background-color 300ms ease-out;
+    }
+    &:hover {
+      box-shadow: 0 4px 8px #ddd;
+      > div {
+        width: 50px;
+        background-color: @primary-color;
+      }
+    }
+    h2,
+    p {
+      text-align: center;
+    }
+    h2 {
+      font-size: 18px;
+      color: @text-primary;
+    }
+    p {
+      font-size: 14px;
+      color: @text-subsidiary;
+    }
+  }
+}

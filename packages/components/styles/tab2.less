@@ -1,0 +1,96 @@
+.d-tab2 {
+  .tab {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    border-bottom: 1px solid @marginal;
+    margin-bottom: 30px;
+    cursor: pointer;
+    > div {
+      margin: 0 20px;
+      padding: 20px 0;
+      font-size: 16px;
+      position: relative;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      .drop-shadow {
+        position: relative;
+        overflow: hidden;
+        width: 20px;
+        height: 20px;
+        margin: 0 10px;
+        img {
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          box-sizing: border-box;
+          top: calc(100% - 1px);
+          border: 1px solid transparent;
+          filter: drop-shadow(0 -20px 0 @text-primary);
+        }
+      }
+
+      &::after {
+        content: "";
+        display: block;
+        width: 0;
+        height: 3px;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        background-color: @primary-color;
+        transition: width 0.2s;
+      }
+      &.show {
+        &::after {
+          width: 100%;
+        }
+        color: @primary-color;
+        .drop-shadow {
+          img {
+            filter: drop-shadow(0 -20px 0 @primary-color);
+          }
+        }
+      }
+    }
+  }
+  .content {
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    > div {
+      width: 50%;
+      flex-grow: 1;
+      flex-shrink: 1;
+    }
+    img {
+      width: 90%;
+      display: block;
+      margin: 0 auto;
+    }
+    h2 {
+      color: @text-primary;
+      font-size: 18px;
+    }
+    p {
+      margin: 0;
+      line-height: 2;
+      font-size: 12px;
+      color: @text-ordinary;
+    }
+    .des {
+      color: @text-subsidiary;
+    }
+  }
+  > .des {
+    color: @text-ordinary;
+    text-align: center;
+  }
+}
