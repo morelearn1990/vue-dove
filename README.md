@@ -1,5 +1,9 @@
 # vue-dove
 
+该组件是云凤蝶的 vue 方式实现，并调整为组件的方式，能集成到 vue 项目，自定义组件和模板，方便各种静态页面的编辑搭建。
+
+![示意图](./docs/images/editor.png)
+
 ## 如何使用
 
 ### 编辑器
@@ -35,7 +39,7 @@ Vue.use(Components);
 <script>
 // index.vue
 // 以下两个是已经定义好的组件列表和模板列表。可以按照里面的定义形式自己定义自己的组件和模板，也可以将自定义的组件混合进来一起使用
-// 如果不使用预定义的组件，可以不引入，
+// 如果不使用预定义的组件，可以不引入，但需要将自定义的组件和模板通过 components 和 templates 传入到 editor 里面。
 import componentList from "vue-dove/packages/components/schema";
 import templateList from "vue-dove/packages/template";
 export default {
@@ -143,9 +147,9 @@ export default {};
 @block-wrapper-padding: 50px 0;
 ```
 
-自定义颜色主题只能影响 Components 里面预定义的组件。
+自定义颜色主题只能影响 Components 里面预定义的组件，如果不引入预定义的组件，可以不用引入。
 
-## 如何定义一个 schema
+## 如何定义一个侧边栏属性编辑器的 schema
 
 为了不增加学习负担，数据格式的定义方式使用 JSON 进行定义，通过增加特定属性前缀`schema-`来表示编辑器使用的属性:
 
@@ -296,6 +300,90 @@ export default {
 </script>
 ```
 
+## 如何定义一个组件的 schema
+
+```json
+{
+  // 组件名称，通过组件名称软件组件
+  "componentName": "d-list1",
+  // 组件图示，在组件选择器里面显示为组件的示意图（本来也可以直接渲染的，但是侧边选择器的宽度太窄，渲染出来布局就会错乱了，不好看）
+  "image": "",
+  // 编辑器的schema，同时也是解析成传递给渲染组件props的元数据。
+  "schema": {
+    "schema-type": "object",
+    "title": {
+      "schema-type": "text",
+      "schema-title": "标题",
+      "schema-value": "解决方案优势"
+    }
+  }
+}
+```
+
+## 如何定义侧边栏组件选择器的 components
+
+editor 的参数 components 通过透传的方式直接将 components 传递给侧边栏的选择器。可以进行分类展示。
+components 的定义如下：
+
+```json
+{
+  // 分类
+  "banner": {
+    // 分类名称
+    "name": "横幅",
+    // 分类下的组件，里面的数据是上面定义的组件的 schema
+    "children": []
+  },
+  "list": {
+    "name": "列表",
+    "children": []
+  }
+}
+```
+
+## 如何定义侧边栏模板选择器的 templates
+
+模板数据即是一个完整的页面数据，是存有组件 schema 的数组，而 templates 则是模板的分类数据：
+
+```json
+{
+  // 分类
+  "default": {
+    // 分类名称
+    "name": "默认",
+    // 模板数组
+    "children": [
+      {
+        //选择器里面显示的模板的示意图
+        "image": "",
+        //模板的数据，同时也是编辑成功后的页面数据
+        "schema": [
+          {
+            "componentName": "d-paragraph1",
+            "id": "",
+            "schema": {
+              "schema-type": "object",
+              "title": {
+                "schema-type": "text",
+                "schema-title": "标题",
+                "schema-value": "1、功能介绍"
+              },
+              "content": {
+                "schema-type": "richtext",
+                "schema-title": "内容",
+                "schema-value": "用户可以通过该产品进行线上下单、支付、退款等操作。"
+              }
+            }
+          }
+          // ... 更多的组件堆积
+        ]
+      }
+      // ... 更多的模板和分类
+    ]
+  }
+}
+```
+
 ## Project command
 
 ```sh
@@ -318,3 +406,9 @@ yarn lint # Lints and fixes files
 9. ci 更改持续集成软件的配置文件和 package 中的 scripts 命令，例如 scopes: Travis, Circle 等
 10. chore 变更构建流程或辅助工具
 11. revert 代码回退
+
+参考：
+
+1. [quark-h5](https://github.com/huangwei9527/quark-h5)
+2. [凤蝶云](https://www.yunfengdie.com/intro)
+3. [landing](https://landing.ant.design/index-cn)
