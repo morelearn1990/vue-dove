@@ -16,7 +16,7 @@
 </template>
 <script>
 import Title from "./title";
-import { uuid } from "../../util";
+import { uuid } from "packages/utils";
 import eventBus from "../../eventBus";
 export default {
   name: "dove-schema-image",

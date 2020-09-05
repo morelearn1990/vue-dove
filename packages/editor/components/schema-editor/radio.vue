@@ -14,7 +14,7 @@
 </template>
 <script>
 import Title from "./title";
-import { uuid } from "../../util";
+import { uuid } from "packages/utils";
 export default {
   name: "dove-schema-radio",
   components: { Title },

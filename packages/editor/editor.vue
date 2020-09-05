@@ -50,7 +50,8 @@ import ToolTip from "./components/tool-tip";
 import store from "./store";
 import eventBus from "./eventBus";
 
-import { fullScreen, exitFullScreen, getElementTop, getElementReact, uuid } from "./util";
+import { fullScreen, exitFullScreen, getElementTop, getElementReact } from "./util";
+import { uuid } from "packages/utils";
 
 export default {
   name: "dove-editor",

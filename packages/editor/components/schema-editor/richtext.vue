@@ -7,7 +7,7 @@
 <script>
 import Title from "./title";
 import { Jodit } from "jodit";
-import { uuid } from "../../util";
+import { uuid } from "packages/utils";
 export default {
   name: "dove-schema-richtext",
   components: { Title },

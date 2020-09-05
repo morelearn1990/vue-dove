@@ -1,5 +1,5 @@
 import Vue from "vue";
-import { uuid } from "./util";
+import { uuid } from "packages/utils";
 import set from "lodash/set";
 import cloneDeep from "lodash/cloneDeep";
 class Store {
