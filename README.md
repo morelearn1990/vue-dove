@@ -19,10 +19,12 @@ yarn add vue-dove
 ```js
 // main.js 渲染
 import Vue from "vue";
-import { Components, Editor } from "vue-dove";
-
+import { Editor } from "vue-dove";
 import "vue-dove/dist/vue-dove.css";
-import "vue-dove/packages/styles/index.less";
+
+// 注意这个不在是编辑器的内容，后续可能会被删除。被编辑的组件请自行进行定义
+import Components from "vue-dove/example/components";
+import "vue-dove/example/styles/index.less";
 
 Vue.use(Editor);
 
@@ -40,8 +42,9 @@ Vue.use(Components);
 // index.vue
 // 以下两个是已经定义好的组件列表和模板列表。可以按照里面的定义形式自己定义自己的组件和模板，也可以将自定义的组件混合进来一起使用
 // 如果不使用预定义的组件，可以不引入，但需要将自定义的组件和模板通过 components 和 templates 传入到 editor 里面。
-import componentList from "vue-dove/packages/components/schema";
-import templateList from "vue-dove/packages/template";
+// 注意这个不在是编辑器的内容，后续可能会被删除。被编辑的组件请自行进行定义
+import componentList from "vue-dove/example/components/schema";
+import templateList from "vue-dove/example/template";
 export default {
   data() {
     return { schema: [], templateList, componentList };
@@ -96,9 +99,11 @@ yarn add vue-dove
 ```js
 // main.js
 import Vue from "vue";
-import { Components, Viewer } from "vue-dove";
+import { Viewer } from "vue-dove";
 
-import "vue-dove/packages/styles/index.less";
+// 注意这个不在是编辑器的内容，后续可能会被删除。被编辑的组件请自行进行定义
+import Components from "vue-dove/example/components";
+import "vue-dove/example/styles/index.less";
 
 Vue.use(Viewer);
 
@@ -117,37 +122,6 @@ Vue.use(Components);
 export default {};
 </script>
 ```
-
-### 自定义主题
-
-```less
-@import "vue-dove/packages/styles/index.less";
-
-@primary-color: #8c0776;
-```
-
-```less
-// less变量
-// theme-color
-@primary-color: #e03029;
-
-@emphatic-color: #ff9a00;
-
-@text-primary: #303133;
-@text-ordinary: #606266;
-@text-subsidiary: #909399;
-@text-tooltip: #bfc2cc;
-
-@marginal: #e7ebe9;
-@background: #f9f9f9;
-
-// view-width 控制宽度和组件自身的padding，
-@page-wrapper-width: 1200px;
-
-@block-wrapper-padding: 50px 0;
-```
-
-自定义颜色主题只能影响 Components 里面预定义的组件，如果不引入预定义的组件，可以不用引入。
 
 ## 如何定义一个侧边栏属性编辑器的 schema
 

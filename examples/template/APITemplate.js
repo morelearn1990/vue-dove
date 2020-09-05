@@ -1,4 +1,4 @@
-import { uuid } from "../editor/util";
+import { uuid } from "packages/utils";
 import image from "./api.png";
 export default {
   image,
@@ -132,7 +132,8 @@ export default {
               content: {
                 "schema-type": "textarea",
                 "schema-title": "内容",
-                "schema-value": "支付的时候商户必须保证商户订单号在商户系统里是唯一的，否则可能会影响查询、退款、冲正功能，从而商户对账也会出现问题，请商户注意",
+                "schema-value":
+                  "支付的时候商户必须保证商户订单号在商户系统里是唯一的，否则可能会影响查询、退款、冲正功能，从而商户对账也会出现问题，请商户注意",
               },
             },
             {

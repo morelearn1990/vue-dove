@@ -1,7 +1,6 @@
 import "./styles/normalize.css";
 import "./styles/fonts/iconfont.css";
 import "jodit/build/jodit.min.css";
-import "../styles/global.less";
 
 import Editor from "./editor.vue";
 import AddPlaceholder from "./components/add-placeholder.vue";

@@ -6,8 +6,8 @@
 
 <script>
 import schema from "./schema";
-import componentList from "../packages/components/schema";
-import templateList from "../packages/template/index";
+import componentList from "./components/schema";
+import templateList from "./template/index";
 export default {
   name: "App",
   data() {

@@ -3,7 +3,7 @@ import schemaList1 from "../components/list1/schema";
 import schemaList2 from "../components/list2/schema";
 import schemaList5 from "../components/list5/schema";
 
-import { uuid } from "../editor/util";
+import { uuid } from "packages/utils";
 import image from "./solution.png";
 
 const template = {

@@ -1,8 +1,9 @@
 import Vue from "vue";
 import App from "./App.vue";
-import { Editor, Components } from "../packages";
+import { Editor } from "../packages";
+import Components from "./components";
 
-import "../packages/styles/index.less";
+import "./styles/index.less";
 
 Vue.use(Editor);
 Vue.use(Components);
