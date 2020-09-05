@@ -19,7 +19,7 @@ module.exports = {
     },
   },
   chainWebpack: (config) => {
-    config.resolve.alias.set("packages", resolve("src/packages"));
+    config.resolve.alias.set("packages", resolve("packages"));
     config.module
       .rule("images")
       .use("url-loader")
